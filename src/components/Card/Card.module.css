@@ -1,0 +1,8 @@
+.container {
+    display: grid;
+    width: 360px;
+}
+
+.info {
+    padding: 0;
+}

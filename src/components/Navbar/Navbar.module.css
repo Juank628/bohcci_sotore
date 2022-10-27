@@ -1,0 +1,27 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo {
+    width: 100px;
+}
+
+.menu {
+    display: grid;
+    grid-template-columns: repeat(4, 15ch);
+    margin: auto;
+    padding-left: 0;
+    list-style-type: none;
+}
+
+.menu li {
+    text-align: center;
+}
+
+.cart {
+    width: 30px;
+    margin-left: auto;
+}

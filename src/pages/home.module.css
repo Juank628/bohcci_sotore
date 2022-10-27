@@ -1,0 +1,15 @@
+.catalog_container {
+    padding-left: 25px;
+}
+
+.catalog_container h3 {
+    color: gray
+}
+
+.gallery_container {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    max-width: 80%;
+    margin: auto;
+}
