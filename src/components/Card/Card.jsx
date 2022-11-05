@@ -9,7 +9,7 @@ export default function Card(props) {
           <img src={props.card_info.img} alt="" />
         </div>
         <div className={styles.info}>
-            <p className={styles.title}>Salida Vichallito</p>
+            <p className={styles.title}>Salida Vichayito</p>
             <p className={styles.price}>S/250</p>
         </div>
     </section>
