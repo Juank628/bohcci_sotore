@@ -1,8 +1,26 @@
 .container {
     display: grid;
-    width: 360px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.img_area img {
+    max-width: 100%;
 }
 
 .info {
-    padding: 0;
+    padding: 0 5px;
+}
+
+.title, .price {
+    margin: 8px 0;
+    color: brown;
+    font-weight: 500;
+}
+
+.title {
+    font-size: 14px;
+}
+
+.price {
+    font-size: 12px;
 }
