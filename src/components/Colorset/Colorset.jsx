@@ -8,8 +8,8 @@ export default function Colorset() {
 
     return (
         <div className={styles.container}>
-            {colors.map(color => (
-                <div className={styles.color_container}>
+            {colors.map((color, index) => (
+                <div key={index} className={styles.color_container}>
                     <div className={styles.color_option} style={{ backgroundColor: color }}></div>
                 </div>
             ))}
