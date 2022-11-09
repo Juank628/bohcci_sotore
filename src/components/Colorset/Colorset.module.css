@@ -1,21 +1,21 @@
 .container {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 10px
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 10px;
 }
 
 .color_container {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    width: 26px;
-    height: 26px;
-    border: 1px solid gray;
-    border-radius: 50%;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 26px;
+  height: 26px;
+  border: 1px solid gray;
+  border-radius: 50%;
 }
 
 .color_option {
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
 }
