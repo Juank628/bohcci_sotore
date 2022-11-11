@@ -1,3 +1,11 @@
+:root {
+  --breakpoint-phones: 576px;
+  --breakpoint-tablets: 768px;
+  --breakpoint-desktops: 992px;
+  --breakpoint-large-desktops: 1200px;
+  --breakpoint-xlarge-desktops: 1400px;
+}
+
 body {
   font-family: "Roboto Flex", sans-serif;
 }
