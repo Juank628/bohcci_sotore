@@ -1,0 +1,73 @@
+@import "../../assets/style/global_variables.scss";
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.footer_line {
+  width: 75%;
+  border: 1px solid lightgrey;
+}
+
+.logo_container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.logo {
+  width: 50%;
+  margin-top: 20px;
+}
+
+.insta_link,
+.wsp_link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+
+  img {
+    width: 25px;
+  }
+
+  p {
+    margin: 0 5px;
+  }
+}
+
+@media screen and (min-width: $breakpoint-phones) {
+  .container {
+    align-items: center;
+  }
+
+  .footer_line {
+    width: 100%;
+  }
+
+  .logo_container, .insta_link, .wsp_link {
+    width: 33%;
+  }
+
+  .logo {
+    margin-top: 0;
+    width: 130px;
+  }
+
+  .insta_link {
+    order: 1;
+  }
+
+  .logo_container {
+    order: 2;
+  }
+
+  .wsp_link {
+    order: 3;
+  }
+}

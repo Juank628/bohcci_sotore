@@ -5,7 +5,7 @@ import {
   RouterProvider,
   Route
 } from 'react-router-dom'
-import './assets/normalize.css'
+import './assets/style/normalize.css'
 import './index.css'
 import Root from './pages/root'
 import Home from './pages/home'
