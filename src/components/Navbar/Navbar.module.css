@@ -1,7 +1,3 @@
-.desktop_container {
-  display: none;
-}
-
 .mobile_container {
   display: flex;
   justify-content: space-between;
@@ -28,30 +24,5 @@
 
   to {
     transform: scale(1);
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .desktop_container {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    align-items: center;
-    padding: 20px;
-  }
-
-  .desktop_menu {
-    display: grid;
-    grid-template-columns: repeat(4, 15ch);
-    margin: auto;
-    padding-left: 0;
-    list-style-type: none;
-  }
-
-  .desktop_menu li {
-    text-align: center;
-  }
-
-  .mobile_container {
-    display: none;
   }
 }

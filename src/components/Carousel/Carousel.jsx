@@ -1,30 +1,14 @@
 import React from 'react'
-import styles from './Carousel.module.css'
-import { useState, useEffect } from 'react'
+import styles from './Carousel.module.scss'
+import promo_0001 from "../../assets/photos/art/promo_0001.png";
 
-export default function Carousel(props) {
-
-    const [slides, setSlides] = useState([])
-    const [counter, setCounter] = useState(0)
-
-    const shiftRight = () => {
-        setCounter(counter + 1)
-        if(counter >= slides.length - 1) setCounter(0)
-    }
-
-    useEffect(() => {
-        setSlides(props.imgArray)
-    }, [])
-
-    setTimeout(()=>{
-        shiftRight()
-    }, 5000)
-
-
+export default function Carousel() {
     return (
         <div className={styles.container}>
-            <div onClick={shiftRight}>
-                <img src={slides[counter]} alt="" />
+            <div>
+                <img className={styles.mobile_view} src={promo_0001} alt="" />
+                <img className="tablet_view" src="" alt="" />
+                <img className="desktop_view" src="" alt="" />
             </div>
         </div>
     )

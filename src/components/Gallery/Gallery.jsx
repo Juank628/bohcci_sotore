@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from "./Gallery.module.css"
+import styles from "./Gallery.module.scss"
 import Card from "../Card/Card"
 import cover_007 from "../../assets/photos/covers/cover_007.jpeg"
 
