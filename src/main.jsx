@@ -9,6 +9,7 @@ import './assets/style/normalize.css'
 import Root from './pages/root'
 import Home from './pages/home'
 import Shop from './pages/shop'
+import Product from './pages/product'
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
         path: "shop",
         element: <Shop />,
       },
+      {
+        path: "product",
+        element: <Product />
+      }
     ],
   },
 ]);

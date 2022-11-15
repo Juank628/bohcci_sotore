@@ -1,0 +1,30 @@
+@import '../assets//style/global_variables.scss';
+
+.container {
+    padding: 20px;
+}
+
+.main_photo {
+    width: 100%;
+}
+
+.title, .price, .subtitle {
+    font-weight: 600;
+    color: $color-primary;
+}
+
+.title, .price {
+    font-size: 18px;
+}
+
+.subtitle {
+    font-size: 16px;
+}
+
+.btn_wide {
+    background-color: $color-primary;
+    color: white;
+    width: 100%;
+    padding: 15px;
+    border-color: $color-primary;
+}
