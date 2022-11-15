@@ -21,6 +21,20 @@
     font-size: 16px;
 }
 
+.sizes_list {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.size {
+    border: 1px solid $color-primary;
+    padding: 10px 20px;
+}
+
 .btn_wide {
     background-color: $color-primary;
     color: white;
