@@ -1,7 +1,11 @@
 @import "../assets//style/global_variables.scss";
 
 .container {
+  display: flex;
+  flex-direction: column;
   padding: 20px;
+  max-width: 1000px;
+  margin: auto;
 }
 
 .main_photo {
@@ -38,10 +42,53 @@
   padding: 10px 20px;
 }
 
-.btn_wide {
+.add_cart_btn {
   background-color: $color-primary;
   color: white;
   width: 100%;
   padding: 15px;
   border-color: $color-primary;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.quantity span {
+  color: $color-primary;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.quantity input {
+  width: 4ch;
+  height: 3ch;
+  border: 1px solid $color-primary;
+  text-align: center;
+}
+
+.quantity input:focus {
+  outline: none;
+  border: 1px solid $color-primary;
+}
+
+/*
+Media
+*/
+@media screen and (min-width: $breakpoint-desktops) {
+  .container {
+    flex-direction: row;
+  }
+
+  .photos {
+    width: 50%;
+  }
+
+  .info {
+    width: 50%;
+    padding: 0 20px;
+  }
 }
