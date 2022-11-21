@@ -1,0 +1,46 @@
+@import '../../assets/style/global_variables.scss';
+
+.container {
+    display: flex;
+    padding: 16px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
+    margin-bottom: 16px;
+}
+
+.photos {
+    width: 40%;
+}
+
+.main_photo {
+    width: 100%;
+}
+
+.info {
+    width: 60%;
+    padding: 0 8px;
+}
+
+.close {
+    width: 10px;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.close img {
+    width: 100%;
+}
+
+
+
+.title {
+    color: $color-on-secondary;
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: 0;
+}
+
+.subtitle {
+    color: $color-on-secondary;
+    font-size: 14px;
+    margin: 8px 0;
+}
