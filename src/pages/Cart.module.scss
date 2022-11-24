@@ -1,10 +1,46 @@
 @import '../assets/style/global_variables.scss';
 
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: auto;
-    width: 90%;
-    max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  width: 90%;
+  max-width: 1000px;
+}
+
+.total {
+  display: flex;
+  flex-wrap: wrap;
+  box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 30px 20px;
+  margin-top: 10px;
+}
+
+.text,
+.price {
+  width: 50%;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.text {
+  text-align: left;
+}
+
+.price {
+  text-align: right;
+}
+
+.buy_button {
+    width: 100%;
+    background-color: $color-primary;
+    color: $color-on-primary;
+    border: 0;
+    padding: 15px;
+    margin-top: 30px;
 }

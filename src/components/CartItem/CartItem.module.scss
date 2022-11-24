@@ -2,13 +2,14 @@
 
 .container {
     display: flex;
+    gap: 5px;
     padding: 16px;
     box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
     margin-bottom: 16px;
 }
 
 .photos {
-    width: 40%;
+    width: 30%;
 }
 
 .main_photo {
@@ -16,7 +17,7 @@
 }
 
 .info {
-    width: 60%;
+    width: 70%;
     padding: 0 8px;
 }
 
