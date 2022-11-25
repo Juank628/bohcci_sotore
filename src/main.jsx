@@ -10,6 +10,7 @@ import Root from './pages/root'
 import Home from './pages/home'
 import Shop from './pages/shop'
 import Product from './pages/product'
+import Cart from './pages/Cart'
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "product",
         element: <Product />
+      },
+      {
+        path: "cart",
+        element: <Cart />
       }
     ],
   },
