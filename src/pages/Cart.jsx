@@ -31,7 +31,7 @@ export default function Cart() {
       <section className={styles.total_container} style={dinamicMargin}>
         <p className={styles.text}>Total</p>
         <p className={styles.price}>S/250.00</p>
-        <button className={styles.buy_button} onClick={buy}>Continuar compra</button>
+        <button type="button" className={styles.buy_button} onClick={buy}>Continuar compra</button>
       </section>
     </section>
   );
