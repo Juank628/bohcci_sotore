@@ -4,18 +4,25 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.cards_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: auto;
   width: 90%;
   max-width: 1000px;
 }
 
-.total {
+.total_container {
   display: flex;
   flex-wrap: wrap;
   box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
   border-radius: 10px;
   box-sizing: border-box;
-  width: 100%;
+  width: 90%;
+  max-width: 457px;
   padding: 30px 20px;
   margin-top: 10px;
 }
@@ -43,4 +50,13 @@
     border: 0;
     padding: 15px;
     margin-top: 30px;
+}
+
+@media screen and (min-width: $breakpoint-desktops) {
+  .container {
+    flex-direction: row;
+    align-items: flex-start;
+    max-width: 1000px;
+    margin: auto;
+  }
 }
