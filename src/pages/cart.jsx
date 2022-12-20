@@ -1,10 +1,15 @@
 import React, {useState} from 'react';
-import styles from './Cart.module.scss';
+import { useSelector, useDispatch } from 'react-redux';
+import { clearCart } from '../features/cart/cartSlice'
+import styles from './cart.module.scss';
 import CartItem from '../components/CartItem/CartItem';
 
 export default function Cart() {
+  const dispatch = useDispatch();
+  const {quantity} = useSelector((store) => store.cart)
   const [dinamicMargin, setDinamicMargin] = useState({marginTop: 0})
   
+
   document.addEventListener('scroll', () => {
     const scroll = document.documentElement.scrollTop
     const viewPortX = window.innerWidth
@@ -17,7 +22,9 @@ export default function Cart() {
   })
 
   const buy = () => {
-    console.log('in development')
+    console.log(quantity)
+    dispatch(clearCart())
+    console.log(quantity)
   }
 
   return (
