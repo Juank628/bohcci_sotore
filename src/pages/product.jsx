@@ -1,12 +1,11 @@
 import React from 'react';
 import styles from './product.module.scss';
-import template_2_3 from '../assets/photos/covers/template_2_3.jpg';
 
 export default function Product() {
   return (
     <section className={styles.container}>
       <div className={styles.photos}>
-        <img className={styles.main_photo} src={template_2_3} alt='' />
+        <img className={styles.main_photo} src={null} alt='' />
       </div>
       <div className={styles.info}>
         <h2 className={styles.title}>Salida Vichayito - Verde</h2>
