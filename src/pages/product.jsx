@@ -1,11 +1,19 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
 import styles from './product.module.scss';
 
 export default function Product() {
+  const [id, setId] = useState(0)
+
+  useEffect(()=> {
+    let params = (new URL(document.location)).searchParams;
+    setId(params.get('id'))
+  }, [])
+
   return (
     <section className={styles.container}>
       <div className={styles.photos}>
-        <img className={styles.main_photo} src={null} alt='' />
+        <img className={styles.main_photo} src={`/photos/products/${id}.jpg`} alt='' />
       </div>
       <div className={styles.info}>
         <h2 className={styles.title}>Salida Vichayito - Verde</h2>
