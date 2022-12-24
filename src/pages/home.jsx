@@ -6,12 +6,12 @@ import Gallery from "../components/Gallery/Gallery";
 
 export default function Home() {
 
-  const {products} = useSelector((store) => store.products)
+  const {list} = useSelector((store) => store.products)
 
   return (
     <section className={styles.container}>
       <Carousel/>
-      <Gallery items={products}/>
+      <Gallery items={list}/>
     </section>
   );
 }
