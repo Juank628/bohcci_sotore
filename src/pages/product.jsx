@@ -1,9 +1,11 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
+import { addCartItem } from '../features/cart/cartSlice';
 import styles from './product.module.scss';
 
 export default function Product() {
+  const dispatch = useDispatch();
   const { list } = useSelector((store) => store.products);
   const [productData, setProductData] = useState({ sizes: [] });
   const [imgURL, setImgURL] = useState('');
@@ -34,19 +36,24 @@ export default function Product() {
 
   const checkSelection = (size) => {
     if (size === orderData.size) {
-      return ({
-        backgroundColor: "brown",
-        color: "white",
-      })
+      return {
+        backgroundColor: 'brown',
+        color: 'white',
+      };
     } else {
-      return {}
+      return {};
     }
-  }
+  };
+
+  const addToCart = () => {
+    dispatch(addCartItem(orderData));
+  };
 
   useEffect(() => {
     let params = new URL(document.location).searchParams;
     const id = parseInt(params.get('id'));
     setProductData(list.find((item) => item.id === id));
+    setOrderData({ ...orderData, id });
     setImgURL(`/photos/products/${id}.jpg`);
   }, []);
 
@@ -62,7 +69,12 @@ export default function Product() {
         <p className={styles.subtitle}>Talla</p>
         <ul className={styles.sizes_list}>
           {productData.sizes.map((size, index) => (
-            <li key={index} className={styles.size} style={checkSelection(size)} onClick={changeSize}>
+            <li
+              key={index}
+              className={styles.size}
+              style={checkSelection(size)}
+              onClick={changeSize}
+            >
               {size}
             </li>
           ))}
@@ -78,7 +90,9 @@ export default function Product() {
           />
           <span onClick={() => changeQuantity(1)}>&gt;</span>
         </div>
-        <button className={styles.add_cart_btn}>Agregar al carrito</button>
+        <button className={styles.add_cart_btn} onClick={addToCart}>
+          Agregar al carrito
+        </button>
       </div>
     </section>
   );

@@ -1,3 +1,5 @@
+@import '../../assets/style/global_variables.scss';
+
 .mobile_container {
   display: flex;
   justify-content: space-between;
@@ -8,13 +10,31 @@
 
 .menu,
 .logo,
-.cart {
+.cart,
+.quantity {
   max-width: 100px;
   max-height: 30px;
   width: auto;
   height: auto;
   animation-name: presentation;
   animation-duration: 1s;
+}
+
+.cart {
+  margin-top: -20px;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-primary;
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: relative;
+  left: 18px;
 }
 
 @keyframes presentation {
