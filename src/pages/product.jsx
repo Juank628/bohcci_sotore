@@ -10,18 +10,37 @@ export default function Product() {
   const [orderData, setOrderData] = useState({ quantity: 1, size: '' });
 
   const changeHandler = (e) => {
+    console.log(e.target.name);
     setOrderData({
       ...orderData,
-      [e.target.name]: e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const changeQuantity = (factor) => {
-    const newQuantity = Math.max((orderData.quantity + factor), 1);
+    const newQuantity = Math.max(orderData.quantity + factor, 1);
     setOrderData({
       ...orderData,
-      quantity: newQuantity
-    })
+      quantity: newQuantity,
+    });
+  };
+
+  const changeSize = (e) => {
+    setOrderData({
+      ...orderData,
+      size: e.target.textContent,
+    });
+  };
+
+  const checkSelection = (size) => {
+    if (size === orderData.size) {
+      return ({
+        backgroundColor: "brown",
+        color: "white",
+      })
+    } else {
+      return {}
+    }
   }
 
   useEffect(() => {
@@ -43,16 +62,21 @@ export default function Product() {
         <p className={styles.subtitle}>Talla</p>
         <ul className={styles.sizes_list}>
           {productData.sizes.map((size, index) => (
-            <li key={index} className={styles.size}>
+            <li key={index} className={styles.size} style={checkSelection(size)} onClick={changeSize}>
               {size}
             </li>
           ))}
         </ul>
         <p className={styles.subtitle}>Cantidad</p>
         <div className={styles.quantity}>
-          <span onClick={()=>changeQuantity(-1)}>&lt;</span>
-          <input type='text' name="quantity" value={orderData.quantity} onChange={changeHandler} />
-          <span onClick={()=>changeQuantity(1)}>&gt;</span>
+          <span onClick={() => changeQuantity(-1)}>&lt;</span>
+          <input
+            type='text'
+            name='quantity'
+            value={orderData.quantity}
+            onChange={changeHandler}
+          />
+          <span onClick={() => changeQuantity(1)}>&gt;</span>
         </div>
         <button className={styles.add_cart_btn}>Agregar al carrito</button>
       </div>
