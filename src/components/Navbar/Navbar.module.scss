@@ -1,10 +1,10 @@
 @import '../../assets/style/global_variables.scss';
 
-.mobile_container {
+.container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 50px;
+  height: $navbar-height;
   padding: 0 20px;
 }
 

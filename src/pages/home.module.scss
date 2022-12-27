@@ -1,6 +1,9 @@
+@import '../assets/style/global_variables.scss';
+
 .container {
   background-color: white;
   width: 100%;
+  min-height: calc(100vh - $navbar-height - $footer-height-mobile);
 }
 
 .catalog_container {
@@ -17,4 +20,10 @@
   grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
   max-width: 80%;
   margin: auto;
+}
+
+@media screen and (min-width: $breakpoint-desktops) {
+  .container {
+    min-height: calc(100vh - $navbar-height - $footer-height-desktop);
+  }
 }

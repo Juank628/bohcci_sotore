@@ -7,18 +7,23 @@ import cart_icon from '../../assets/icons/cart_icon.png';
 import menu_icon from '../../assets/icons/menu_icon.png';
 
 export default function Navbar() {
+  const { cartItems } = useSelector((store) => store.cart);
 
-  const { cartItems } = useSelector((store) => store.cart)
+  const hideIfEmpty = () => {
+    if (!cartItems.length) return { visibility: 'hidden' };
+  };
 
   return (
     <header>
-      <div className={styles.mobile_container}>
+      <div className={styles.container}>
         <img src={menu_icon} alt='' className={styles.menu} />
         <Link to='/home'>
           <img src={logo_sm} alt='' className={styles.logo} />
         </Link>
         <Link to='/cart'>
-          <div className={styles.quantity}>{cartItems.length}</div>
+          <div className={styles.quantity} style={hideIfEmpty()}>
+            {cartItems.length}
+          </div>
           <img src={cart_icon} alt='' className={styles.cart} />
         </Link>
       </div>

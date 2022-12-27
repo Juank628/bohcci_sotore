@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from 'react-redux';
-import styles from './home.module.css'
+import styles from './home.module.scss'
 import Carousel from "../components/Carousel/Carousel";
 import Gallery from "../components/Gallery/Gallery";
 

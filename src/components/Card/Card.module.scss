@@ -1,10 +1,14 @@
+$card-border-radius: 5px;
+
 .container {
   display: grid;
   box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
+  border-radius: $card-border-radius;
 }
 
 .img_area img {
   max-width: 100%;
+  border-radius: $card-border-radius $card-border-radius 0 0;
 }
 
 .info {
