@@ -10,6 +10,7 @@ export default function Product() {
   const [productData, setProductData] = useState({ sizes: [] });
   const [imgURL, setImgURL] = useState('');
   const [orderData, setOrderData] = useState({ quantity: 1, size: '' });
+  const [validationErrors, setValidationErrors] = useState([]);
 
   const changeHandler = (e) => {
     console.log(e.target.name);
@@ -45,6 +46,15 @@ export default function Product() {
     }
   };
 
+  const validate = () => {
+    const errors = [];
+    if (!/^\d+$/.test(orderData.quantity))
+      errors.push('ingrese una cantidad válida');
+    if (orderData.quantity > 2) errors.push('Cantidad superior a la permitida');
+    if (orderData.size === '') errors.push('Seleccione una talla');
+    setValidationErrors(errors);
+  };
+
   const addToCart = () => {
     dispatch(addCartItem(orderData));
   };
@@ -55,7 +65,12 @@ export default function Product() {
     setProductData(list.find((item) => item.id === id));
     setOrderData({ ...orderData, id });
     setImgURL(`/photos/products/${id}.jpg`);
+    validate();
   }, []);
+
+  useEffect(() => {
+    validate();
+  }, [orderData]);
 
   return (
     <section className={styles.container}>
@@ -90,9 +105,20 @@ export default function Product() {
           />
           <span onClick={() => changeQuantity(1)}>&gt;</span>
         </div>
-        <button className={styles.add_cart_btn} onClick={addToCart}>
-          Agregar al carrito
+        <button
+          className={styles.add_cart_btn}
+          onClick={addToCart}
+          disabled={validationErrors.length}
+        >
+          AGREGAR AL CARRITO
         </button>
+        <ul>
+          {validationErrors.map((error, index) => (
+            <li key={index} className={styles.error}>
+              {error}
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
