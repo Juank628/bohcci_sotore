@@ -6,21 +6,27 @@ import styles from './product.module.scss';
 
 export default function Product() {
   const dispatch = useDispatch();
+  const [imgURL, setImgURL] = useState('');
   const { list } = useSelector((store) => store.products);
   const [productData, setProductData] = useState({ stock: [] });
-  const [imgURL, setImgURL] = useState('');
   const [orderData, setOrderData] = useState({ quantity: 1, size: '' });
+  const [stock, setStock] = useState(0);
   const [validationErrors, setValidationErrors] = useState([]);
 
-  const changeHandler = (e) => {
-    console.log(e.target.name);
+  const changeQuantity = (e) => {
+    let newQuantity = 0;
+    if (/^\d+$/.test(e.target.value)) {
+      newQuantity = parseInt(e.target.value);
+    } else {
+      newQuantity = 0;
+    }
     setOrderData({
       ...orderData,
-      [e.target.name]: e.target.value,
+      quantity: newQuantity,
     });
   };
 
-  const changeQuantity = (factor) => {
+  const addQuantity = (factor) => {
     const newQuantity = Math.max(orderData.quantity + factor, 1);
     setOrderData({
       ...orderData,
@@ -35,7 +41,7 @@ export default function Product() {
     });
   };
 
-  const checkSelection = (size) => {
+  const styleSize = (size) => {
     if (size === orderData.size) {
       return {
         backgroundColor: 'brown',
@@ -46,12 +52,28 @@ export default function Product() {
     }
   };
 
+  const updateStock = () => {
+    const productSize = productData.stock.find(
+      (item) => item.size === orderData.size
+    );
+    if (productSize) {
+      setStock(productSize.quantity);
+    } else {
+      setStock(0);
+    }
+  };
+
   const validate = () => {
     const errors = [];
-    if (!/^\d+$/.test(orderData.quantity))
-      errors.push('ingrese una cantidad válida');
-    if (orderData.quantity > 2) errors.push('Cantidad superior a la permitida');
-    if (orderData.size === '') errors.push('Seleccione una talla');
+    const { quantity, size } = orderData;
+    if (size === '') {
+      errors.push('Seleccione una talla');
+      setValidationErrors(errors);
+      return;
+    }
+    if (quantity < 1) errors.push('ingrese una cantidad mayor a cero');
+    if (!/^\d+$/.test(quantity)) errors.push('ingrese una cantidad válida');
+    if (quantity > stock) errors.push('Cantidad superior al stock');
     setValidationErrors(errors);
   };
 
@@ -69,8 +91,12 @@ export default function Product() {
   }, []);
 
   useEffect(() => {
+    updateStock();
+  }, [orderData.size]);
+
+  useEffect(() => {
     validate();
-  }, [orderData]);
+  }, [stock, orderData]);
 
   return (
     <section className={styles.container}>
@@ -87,7 +113,7 @@ export default function Product() {
             <li
               key={index}
               className={styles.size}
-              style={checkSelection(item.size)}
+              style={styleSize(item.size)}
               onClick={changeSize}
             >
               {item.size}
@@ -95,15 +121,18 @@ export default function Product() {
           ))}
         </ul>
         <p className={styles.subtitle}>Cantidad</p>
+        {orderData.size ? (
+          <p className={styles.stock}>Stock: {stock} unidades</p>
+        ) : null}
         <div className={styles.quantity}>
-          <span onClick={() => changeQuantity(-1)}>&lt;</span>
+          <span onClick={() => addQuantity(-1)}>&lt;</span>
           <input
             type='text'
             name='quantity'
             value={orderData.quantity}
-            onChange={changeHandler}
+            onChange={changeQuantity}
           />
-          <span onClick={() => changeQuantity(1)}>&gt;</span>
+          <span onClick={() => addQuantity(1)}>&gt;</span>
         </div>
         <button
           className={styles.add_cart_btn}

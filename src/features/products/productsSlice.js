@@ -11,12 +11,12 @@ const initialState = {
       stock: [
         {
           size: 'M',
-          quantity: 5
+          quantity: 5,
         },
         {
           size: 'S',
-          quantity: 3
-        }
+          quantity: 3,
+        },
       ],
     },
     {
@@ -28,12 +28,12 @@ const initialState = {
       stock: [
         {
           size: 'L',
-          quantity: 6
+          quantity: 6,
         },
         {
           size: 'M',
-          quantity: 4
-        }
+          quantity: 4,
+        },
       ],
     },
     {
@@ -45,12 +45,12 @@ const initialState = {
       stock: [
         {
           size: 'XL',
-          quantity: 1
+          quantity: 1,
         },
         {
           size: 'S',
-          quantity: 2
-        }
+          quantity: 2,
+        },
       ],
     },
     {
@@ -62,12 +62,12 @@ const initialState = {
       stock: [
         {
           size: 'S',
-          quantity: 2
+          quantity: 2,
         },
         {
           size: 'M',
-          quantity: 1
-        }
+          quantity: 1,
+        },
       ],
     },
   ],
