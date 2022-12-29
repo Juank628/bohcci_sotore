@@ -7,7 +7,7 @@ import styles from './product.module.scss';
 export default function Product() {
   const dispatch = useDispatch();
   const { list } = useSelector((store) => store.products);
-  const [productData, setProductData] = useState({ sizes: [] });
+  const [productData, setProductData] = useState({ stock: [] });
   const [imgURL, setImgURL] = useState('');
   const [orderData, setOrderData] = useState({ quantity: 1, size: '' });
   const [validationErrors, setValidationErrors] = useState([]);
@@ -83,14 +83,14 @@ export default function Product() {
         <p>{productData.description}</p>
         <p className={styles.subtitle}>Talla</p>
         <ul className={styles.sizes_list}>
-          {productData.sizes.map((size, index) => (
+          {productData.stock.map((item, index) => (
             <li
               key={index}
               className={styles.size}
-              style={checkSelection(size)}
+              style={checkSelection(item.size)}
               onClick={changeSize}
             >
-              {size}
+              {item.size}
             </li>
           ))}
         </ul>

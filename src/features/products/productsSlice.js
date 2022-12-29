@@ -8,7 +8,16 @@ const initialState = {
       description: 'Salida de playa verde adulto',
       sale: false,
       price: 110,
-      sizes: ['M', 'L'],
+      stock: [
+        {
+          size: 'M',
+          quantity: 5
+        },
+        {
+          size: 'S',
+          quantity: 3
+        }
+      ],
     },
     {
       id: 2,
@@ -16,7 +25,16 @@ const initialState = {
       description: 'Salida de playa verde niña',
       sale: false,
       price: 120,
-      sizes: ['S'],
+      stock: [
+        {
+          size: 'L',
+          quantity: 6
+        },
+        {
+          size: 'M',
+          quantity: 4
+        }
+      ],
     },
     {
       id: 3,
@@ -24,7 +42,16 @@ const initialState = {
       description: 'Salida de playa verde adulto',
       sale: false,
       price: 130,
-      sizes: ['M', 'L'],
+      stock: [
+        {
+          size: 'XL',
+          quantity: 1
+        },
+        {
+          size: 'S',
+          quantity: 2
+        }
+      ],
     },
     {
       id: 4,
@@ -32,7 +59,16 @@ const initialState = {
       description: 'Salida de playa verde niña',
       sale: false,
       price: 140,
-      sizes: ['S'],
+      stock: [
+        {
+          size: 'S',
+          quantity: 2
+        },
+        {
+          size: 'M',
+          quantity: 1
+        }
+      ],
     },
   ],
 };
