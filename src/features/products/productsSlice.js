@@ -80,9 +80,12 @@ const productsSlice = createSlice({
     readProducts: (state) => {
       state.products = [];
     },
+    setProducts: (state, action) => {
+      state.list = action.payload;
+    }
   },
 });
 
-export const { readProducts } = productsSlice.actions;
+export const { readProducts, setProducts } = productsSlice.actions;
 
 export default productsSlice.reducer;
