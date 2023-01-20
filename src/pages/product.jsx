@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { addCartItem } from '../features/cart/cartSlice';
 import styles from './product.module.scss';
 
 export default function Product() {
   const dispatch = useDispatch();
+  const id = parseInt(useParams().id);
   const [imgURL, setImgURL] = useState('');
   const { list } = useSelector((store) => store.products);
   const [productData, setProductData] = useState({ stock: [] });
@@ -82,8 +83,8 @@ export default function Product() {
   };
 
   useEffect(() => {
-    let params = new URL(document.location).searchParams;
-    const id = parseInt(params.get('id'));
+    //let params = new URL(document.location).searchParams;
+    //const id = parseInt(params.get('id'));
     setProductData(list.find((item) => item.id === id));
     setOrderData({ ...orderData, id });
     setImgURL(`/photos/products/${id}.jpg`);
