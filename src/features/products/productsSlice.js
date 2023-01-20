@@ -82,7 +82,7 @@ const productsSlice = createSlice({
     },
     setProducts: (state, action) => {
       state.list = action.payload;
-    }
+    },
   },
 });
 
