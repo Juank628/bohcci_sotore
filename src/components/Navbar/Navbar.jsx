@@ -17,7 +17,7 @@ export default function Navbar() {
     <header>
       <div className={styles.container}>
         <img src={menu_icon} alt='' className={styles.menu} />
-        <Link to='/home'>
+        <Link to='/'>
           <img src={logo_sm} alt='' className={styles.logo} />
         </Link>
         <Link to='/cart'>
