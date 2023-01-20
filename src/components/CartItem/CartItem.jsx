@@ -1,23 +1,38 @@
-import React from 'react'
-import styles from './CartItem.module.scss'
-import close_icon from '../../assets/icons/close_icon.png'
-import template_2_3 from '../../assets/photos/covers/template_2_3.jpg'
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { deleteCartItem } from '../../features/cart/cartSlice';
+import styles from './CartItem.module.scss';
+import closeIcon from '../../assets/icons/close_icon.png';
 
-export default function CartItem() {
+export default function CartItem(props) {
+  const dispatch = useDispatch();
+  const { data } = props;
+  const { list } = useSelector((store) => store.products);
+
+  const product = list.find((item) => item.id === data.id);
+
+  const deleteProduct = () => {
+    dispatch(deleteCartItem(data.id))
+  }
+
   return (
     <section className={styles.container}>
-        <div className={styles.photos}>
-            <img className={styles.main_photo} src={template_2_3} alt="" />
+      <div className={styles.photos}>
+        <img
+          className={styles.main_photo}
+          src={`./photos/products/${data.id}.jpg`}
+          alt='product photo'
+        />
+      </div>
+      <div className={styles.info}>
+        <div onClick={deleteProduct} className={styles.close}>
+          <img src={closeIcon} alt='close' />
         </div>
-        <div className={styles.info}>
-            <div className={styles.close}>
-              <img src={close_icon} alt="" />
-            </div>
-            <p className={styles.title}>Salida Vichayito</p>
-            <p className={styles.subtitle}>Talla: M</p>
-            <p className={styles.subtitle}>Cantidad: 1</p>
-            <p className={styles.subtitle}>Subtotal: S/120</p>
-        </div>
+        <p className={styles.title}>{product.name}</p>
+        <p className={styles.subtitle}>Talla: {data.size}</p>
+        <p className={styles.subtitle}>Cantidad: {data.quantity}</p>
+        <p className={styles.subtitle}>Subtotal: {product.price}</p>
+      </div>
     </section>
-  )
+  );
 }

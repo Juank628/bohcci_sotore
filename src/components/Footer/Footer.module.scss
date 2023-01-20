@@ -5,8 +5,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  margin-top: 50px;
-  margin-bottom: 20px;
+  height: $footer-height-mobile;
 }
 
 .footer_line {
@@ -44,6 +43,7 @@
 @media screen and (min-width: $breakpoint-phones) {
   .container {
     align-items: center;
+    height: $footer-height-desktop;
   }
 
   .footer_line {

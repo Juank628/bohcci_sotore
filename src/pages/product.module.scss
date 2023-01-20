@@ -40,14 +40,26 @@
 .size {
   border: 1px solid $color-primary;
   padding: 10px 20px;
+  cursor: pointer;
+}
+
+.stock {
+  font-size: 14px;
 }
 
 .add_cart_btn {
   background-color: $color-primary;
-  color: white;
+  border: 0;
   width: 100%;
   padding: 15px;
-  border-color: $color-primary;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.add_cart_btn:disabled {
+  background-color: $color-disabled;
+  opacity: 0.65;
 }
 
 .quantity {
@@ -73,6 +85,10 @@
 .quantity input:focus {
   outline: none;
   border: 1px solid $color-primary;
+}
+
+.error {
+  color: $color-error;
 }
 
 /*
