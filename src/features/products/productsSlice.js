@@ -4,8 +4,9 @@ const initialState = {
   list: [
     {
       id: 1,
-      name: 'Salida 1',
+      name: 'NICOLE',
       description: 'Salida de playa verde adulto',
+      family: 'salidas adulto',
       sale: false,
       price: 110,
       stock: [
@@ -21,8 +22,9 @@ const initialState = {
     },
     {
       id: 2,
-      name: 'Salida 2',
+      name: 'ROCIO',
       description: 'Salida de playa verde niña',
+      family: 'salidas adulto',
       sale: false,
       price: 120,
       stock: [
@@ -38,8 +40,9 @@ const initialState = {
     },
     {
       id: 3,
-      name: 'Salida 3',
+      name: 'LAURA',
       description: 'Salida de playa verde adulto',
+      family: 'salidas adulto',
       sale: false,
       price: 130,
       stock: [
@@ -55,8 +58,82 @@ const initialState = {
     },
     {
       id: 4,
-      name: 'Salida 4',
+      name: 'RAFAELA',
       description: 'Salida de playa verde niña',
+      family: 'salidas adulto',
+      sale: false,
+      price: 140,
+      stock: [
+        {
+          size: 'S',
+          quantity: 2,
+        },
+        {
+          size: 'M',
+          quantity: 1,
+        },
+      ],
+    },
+
+    {
+      id: 5,
+      name: 'NICOLE',
+      description: 'Salida de playa verde adulto',
+      family: 'salidas mama hija',
+      sale: false,
+      price: 110,
+      stock: [
+        {
+          size: 'M',
+          quantity: 5,
+        },
+        {
+          size: 'S',
+          quantity: 3,
+        },
+      ],
+    },
+    {
+      id: 6,
+      name: 'ROCIO',
+      description: 'Salida de playa verde niña',
+      family: 'salidas mama hija',
+      sale: false,
+      price: 120,
+      stock: [
+        {
+          size: 'L',
+          quantity: 6,
+        },
+        {
+          size: 'M',
+          quantity: 4,
+        },
+      ],
+    },
+    {
+      id: 7,
+      name: 'LAURA',
+      description: 'Salida de playa verde adulto',
+      family: 'salidas mama hija',
+      sale: false,
+      price: 130,
+      stock: [
+        {
+          size: 'XL',
+          quantity: 1,
+        },
+        {
+          size: 'S',
+          quantity: 2,
+        },
+      ],
+    },
+    {
+      id: 8,
+      name: 'RAFAELA',
+      description: 'Salida de playa verde niña',
+      family: 'salidas mama hija',
       sale: false,
       price: 140,
       stock: [

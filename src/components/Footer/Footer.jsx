@@ -7,7 +7,6 @@ import instagram_icon from "../../assets/icons/instagram_icon.png";
 export default function Footer() {
   return (
     <footer className={styles.container}>
-      <hr className={styles.footer_line} />
       <div className={styles.logo_container}>
         <img className={styles.logo} src={logo_lg} alt="logo_lg" />
       </div>

@@ -6,7 +6,6 @@ import { apiURL } from '../utilities/parameters'
 import Navbar from '../components/Navbar/Navbar'
 import Footer from '../components/Footer/Footer'
 import Home from './home';
-import Shop from './shop';
 import Product from './product';
 import Cart from './cart';
 import "./root.scss"

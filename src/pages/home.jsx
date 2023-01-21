@@ -10,7 +10,6 @@ export default function Home() {
 
   return (
     <section className={styles.container}>
-      <Carousel/>
       <Gallery items={list}/>
     </section>
   );
