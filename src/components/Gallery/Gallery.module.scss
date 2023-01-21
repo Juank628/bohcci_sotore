@@ -1,22 +1,38 @@
 @import "../../assets/style/global_variables.scss";
 
-.container {
+.mainContainer {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  flex-direction: column;
   gap: 15px;
   padding: 15px;
 }
 
+.familyContainer {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 15px;
+}
+
+.familyTitle {
+  font-weight: 1000;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #7286D3;
+}
+
 @media screen and (min-width: $breakpoint-phones) {
-  .container {
-    grid-template-columns: repeat(3, 1fr);
+  .familyContainer {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media screen and (min-width: $breakpoint-desktops) {
-  .container {
+  .familyContainer {
     grid-template-columns: repeat(4, 1fr);
     gap: 30px;
+  }
+
+  .mainContainer {
     padding: 15px 30px;
   }
 }
