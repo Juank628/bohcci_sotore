@@ -8,8 +8,8 @@ export default function Gallery(props) {
   return (
     <section className={styles.mainContainer}>
 
+      <h2 className={styles.familyTitle}>- SALIDAS ADULTO -</h2>
       <div className={styles.familyContainer}>
-        <h2 className={styles.familyTitle}>- SALIDAS ADULTO -</h2>
         {items.map((item, index) => {
           if (item.family === 'salidas adulto') {
             return <Card key={index} data={item} />;
@@ -17,8 +17,8 @@ export default function Gallery(props) {
         })}
       </div>
 
+      <h2 className={styles.familyTitle}>- SALIDAS MAMÁ HIJA -</h2>
       <div className={styles.familyContainer}>
-        <h2 className={styles.familyTitle}>- SALIDAS MAMÁ HIJA -</h2>
         {items.map((item, index) => {
           if (item.family === 'salidas mama hija') {
             return <Card key={index} data={item} />;
