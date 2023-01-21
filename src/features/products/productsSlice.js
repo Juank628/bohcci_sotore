@@ -4,7 +4,7 @@ const initialState = {
   list: [
     {
       id: 1,
-      name: 'Salida 1',
+      name: 'NICOLE',
       description: 'Salida de playa verde adulto',
       sale: false,
       price: 110,
@@ -21,7 +21,7 @@ const initialState = {
     },
     {
       id: 2,
-      name: 'Salida 2',
+      name: 'ROCIO',
       description: 'Salida de playa verde niña',
       sale: false,
       price: 120,
@@ -38,7 +38,7 @@ const initialState = {
     },
     {
       id: 3,
-      name: 'Salida 3',
+      name: 'LAURA',
       description: 'Salida de playa verde adulto',
       sale: false,
       price: 130,
@@ -55,7 +55,7 @@ const initialState = {
     },
     {
       id: 4,
-      name: 'Salida 4',
+      name: 'RAFAELA',
       description: 'Salida de playa verde niña',
       sale: false,
       price: 140,

@@ -4,6 +4,7 @@ $card-border-radius: 5px;
   display: grid;
   box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
   border-radius: $card-border-radius;
+  background-color: #FFF2F2;
 }
 
 .img_area img {
@@ -17,15 +18,17 @@ $card-border-radius: 5px;
 
 .title,
 .price {
-  margin: 8px 0;
-  color: brown;
-  font-weight: 500;
+  text-align: center;
+  color: black;
+  margin: 10px 0;
 }
 
 .title {
-  font-size: 14px;
+  font-size: 30px;
+  font-weight: 300;
 }
 
 .price {
-  font-size: 12px;
+  font-size: 14px;
+  font-weight: 600;
 }
