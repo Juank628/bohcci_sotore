@@ -1,0 +1,27 @@
+.mainContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #7286d3;
+}
+
+.closeContainer {
+  width: 100%;
+  text-align: right;
+}
+
+.close {
+  width: 20px;
+  padding: 10px;
+}
+
+.link {
+  height: 30px;
+  margin: 20px;
+}
+
+.linkText {
+  color: #e5e0ff;
+  font-size: 20px;
+}

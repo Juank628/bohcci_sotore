@@ -6,8 +6,12 @@ import logo_sm from '../../assets/logos/logo_sm.jpg';
 import cart_icon from '../../assets/icons/cart_icon.png';
 import menu_icon from '../../assets/icons/menu_icon.png';
 
-export default function Navbar() {
+export default function Navbar(props) {
   const { cartItems } = useSelector((store) => store.cart);
+
+  const openMenu = () => {
+    props.showMenuHandler(true);
+  };
 
   const hideIfEmpty = () => {
     if (!cartItems.length) return { visibility: 'hidden' };
@@ -16,7 +20,12 @@ export default function Navbar() {
   return (
     <header>
       <div className={styles.container}>
-        <img src={menu_icon} alt='' className={styles.menu} />
+        <img
+          src={menu_icon}
+          alt=''
+          className={styles.menu}
+          onClick={openMenu}
+        />
         <Link to='/'>
           <img src={logo_sm} alt='' className={styles.logo} />
         </Link>
