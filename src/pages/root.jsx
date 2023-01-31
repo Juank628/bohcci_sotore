@@ -16,13 +16,13 @@ export default function Root() {
   const [homeSection, setHomeSection] = useState('');
   const dispatch = useDispatch();
 
-  const showMenuHandler = (isShow) => setShowMenu(isShow)
-
   const getProducts = async() => {
     const res = await fetch(apiURL)
     const products = await res.json()
     dispatch(setProducts(products))
   }
+
+  const showMenuHandler = (isShow) => setShowMenu(isShow)
 
   const gotToSection = (section) => {
     setHomeSection(section)
@@ -37,8 +37,8 @@ export default function Root() {
 
   return (
     <div>
-        <NavMenu showMenuHandler={showMenuHandler} show={showMenu} goTo={gotToSection} />
         <Navbar showMenuHandler={showMenuHandler} />
+        <NavMenu showMenuHandler={showMenuHandler} show={showMenu} goTo={gotToSection} />
         <Routes>
           <Route path="/" element={<Home section={homeSection} />} />
           <Route path="/cart" element={<Cart />} />

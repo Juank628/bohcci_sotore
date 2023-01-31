@@ -4,6 +4,18 @@
   left: 0;
   width: 100%;
   background-color: #7286d3;
+  animation-name: drop-down;
+  animation-duration: 0.5s;
+}
+
+@keyframes drop-down {
+  from {
+    margin-top: -50vh;
+  }
+
+  to {
+    margin-top: 0;
+  }
 }
 
 .closeContainer {

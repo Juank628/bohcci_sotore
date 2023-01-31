@@ -5,15 +5,12 @@ import Card from '../Card/Card';
 export default function Gallery(props) {
   const { items, section } = props;
   
-  useEffect(()=>{
-    console.log(section)
+  useEffect(() => {
     if (section !== '') {
-      setTimeout(()=>{
-        const sectionElement = document.getElementById(section);
-        sectionElement.scrollIntoView({ behavior: "smooth"});
-      }, 500)
+      const sectionElement = document.getElementById(section);
+      sectionElement.scrollIntoView({ behavior: 'smooth' });
     }
-  },[section])
+  }, [section]);
 
   return (
     <section className={styles.mainContainer} id="mainContainer">

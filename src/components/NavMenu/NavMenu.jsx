@@ -22,10 +22,10 @@ export default function NavMenu({ show, showMenuHandler, goTo }) {
           </div>
           <ul>
             <li className={styles.link}>
-              <Link className={styles.linkText}>SALIDAS ADULTO</Link>
+              <Link to="/" onClick={()=>goToSection('section-1')} className={styles.linkText}>SALIDAS ADULTO</Link>
             </li>
             <li className={styles.link}>
-              <Link to={'/'} onClick={()=>goToSection('section-2')} className={styles.linkText}>SALIDAS MAMÁ HIJA</Link>
+              <Link to="/" onClick={()=>goToSection('section-2')} className={styles.linkText}>SALIDAS MAMÁ HIJA</Link>
             </li>
             <li className={styles.link}>
               <Link className={styles.linkText}>PANTALONES</Link>
@@ -37,7 +37,7 @@ export default function NavMenu({ show, showMenuHandler, goTo }) {
               <hr />
             </li>
             <li className={styles.link}>
-              <Link className={styles.linkText}>CARRITO</Link>
+              <Link to="/cart" onClick={closeMenu} className={styles.linkText}>CARRITO</Link>
             </li>
           </ul>
         </nav>

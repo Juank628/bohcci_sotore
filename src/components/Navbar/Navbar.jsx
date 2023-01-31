@@ -18,8 +18,8 @@ export default function Navbar(props) {
   };
 
   return (
-    <header>
-      <div className={styles.container}>
+    <header className={styles.mainContainer}>
+      <div className={styles.mobileContainer}>
         <img
           src={menu_icon}
           alt=''
