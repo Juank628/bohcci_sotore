@@ -1,6 +1,11 @@
 @import '../../assets/style/global_variables.scss';
 
-.container {
+.mainContainer {
+  position: sticky;
+  top: 0;
+}
+
+.mobileContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;

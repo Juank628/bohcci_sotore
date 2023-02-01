@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { setProducts } from '../features/products/productsSlice'
 import {Routes, Route} from 'react-router-dom'
 import { apiURL } from '../utilities/parameters'
+import NavMenu from '../components/NavMenu/NavMenu'
 import Navbar from '../components/Navbar/Navbar'
 import Footer from '../components/Footer/Footer'
 import Home from './home';
@@ -11,6 +12,8 @@ import Cart from './cart';
 import "./root.scss"
 
 export default function Root() {
+  const [showMenu, setShowMenu] = useState(false)
+  const [homeSection, setHomeSection] = useState('');
   const dispatch = useDispatch();
 
   const getProducts = async() => {
@@ -19,15 +22,25 @@ export default function Root() {
     dispatch(setProducts(products))
   }
 
+  const showMenuHandler = (isShow) => setShowMenu(isShow)
+
+  const gotToSection = (section) => {
+    setHomeSection(section)
+    setTimeout(()=>{
+      setHomeSection('')
+    },500)
+  }
+
   useEffect(()=>{
     getProducts()
   },[])
 
   return (
     <div>
-        <Navbar />
+        <Navbar showMenuHandler={showMenuHandler} />
+        <NavMenu showMenuHandler={showMenuHandler} show={showMenu} goTo={gotToSection} />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home section={homeSection} />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/product/:id" element={<Product />} />
         </Routes>
