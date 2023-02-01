@@ -37,7 +37,7 @@ export default function Root() {
 
   return (
     <div>
-        <Navbar showMenuHandler={showMenuHandler} />
+        <Navbar showMenuHandler={showMenuHandler} goTo={gotToSection} />
         <NavMenu showMenuHandler={showMenuHandler} show={showMenu} goTo={gotToSection} />
         <Routes>
           <Route path="/" element={<Home section={homeSection} />} />

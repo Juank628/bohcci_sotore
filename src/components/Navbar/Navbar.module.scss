@@ -43,6 +43,20 @@
   left: 18px;
 }
 
+.desktopContainer {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  height: $navbar-height;
+  padding: 0 20px;
+  background-color: white;
+}
+
+.linksList {
+  display: flex;
+  gap: 20px;
+}
+
 @keyframes presentation {
   from {
     transform: scale(0);
@@ -50,5 +64,15 @@
 
   to {
     transform: scale(1);
+  }
+}
+
+@media screen and (min-width: $breakpoint-desktops) {
+  .desktopContainer {
+    display: flex;
+  }
+
+  .mobileContainer {
+    display: none;
   }
 }
