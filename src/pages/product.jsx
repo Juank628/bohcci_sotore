@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { addCartItem } from '../features/cart/cartSlice';
+import { addCartItem } from '../redux/slices/cartSlice';
 import styles from './product.module.scss';
 
 export default function Product() {
