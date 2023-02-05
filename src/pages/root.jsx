@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { readAllProducts } from '../redux/slices/productsSlice';
 import NavMenu from '../components/NavMenu/NavMenu';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
@@ -13,11 +11,6 @@ import './root.scss';
 export default function Root() {
   const [showMenu, setShowMenu] = useState(false);
   const [homeSection, setHomeSection] = useState('');
-  const dispatch = useDispatch();
-
-  const getProducts = async () => {
-    dispatch(readAllProducts());
-  };
 
   const showMenuHandler = (isShow) => setShowMenu(isShow);
 
@@ -27,10 +20,6 @@ export default function Root() {
       setHomeSection('');
     }, 500);
   };
-
-  useEffect(() => {
-    getProducts();
-  }, []);
 
   return (
     <div>
