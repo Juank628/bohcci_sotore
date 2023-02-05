@@ -17,21 +17,12 @@ export const readAllProducts = createAsyncThunk(
 const productsSlice = createSlice({
   name: 'products',
   initialState,
-  reducers: {
-    readProducts: (state) => {
-      state.products = [];
-    },
-    setProducts: (state, action) => {
-      state.list = action.payload;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(readAllProducts.fulfilled, (state, action) => {
       state.list = action.payload;
     });
   },
 });
-
-export const { readProducts, setProducts } = productsSlice.actions;
 
 export default productsSlice.reducer;
