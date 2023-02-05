@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
-import { setProducts } from '../redux/slices/productsSlice';
-import { apiURL } from '../utilities/parameters';
+import { readAllProducts } from '../redux/slices/productsSlice';
 import NavMenu from '../components/NavMenu/NavMenu';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
@@ -17,9 +16,7 @@ export default function Root() {
   const dispatch = useDispatch();
 
   const getProducts = async () => {
-    const res = await fetch(apiURL);
-    const products = await res.json();
-    dispatch(setProducts(products));
+    dispatch(readAllProducts());
   };
 
   const showMenuHandler = (isShow) => setShowMenu(isShow);
