@@ -6,7 +6,7 @@ import styles from './product.module.scss';
 
 export default function Product() {
   const dispatch = useDispatch();
-  const id = parseInt(useParams().id);
+  const id = parseInt(useParams().id, 10);
   const [imgURL, setImgURL] = useState('');
   const { list } = useSelector((store) => store.products);
   const [productData, setProductData] = useState({ stock: [] });
@@ -17,7 +17,7 @@ export default function Product() {
   const changeQuantity = (e) => {
     let newQuantity = 0;
     if (/^\d+$/.test(e.target.value)) {
-      newQuantity = parseInt(e.target.value);
+      newQuantity = parseInt(e.target.value, 10);
     } else {
       newQuantity = 0;
     }
@@ -48,14 +48,13 @@ export default function Product() {
         backgroundColor: 'brown',
         color: 'white',
       };
-    } else {
-      return {};
     }
+    return {};
   };
 
   const updateStock = () => {
     const productSize = productData.stock.find(
-      (item) => item.size === orderData.size
+      (item) => item.size === orderData.size,
     );
     if (productSize) {
       setStock(productSize.quantity);
@@ -83,8 +82,6 @@ export default function Product() {
   };
 
   useEffect(() => {
-    //let params = new URL(document.location).searchParams;
-    //const id = parseInt(params.get('id'));
     setProductData(list.find((item) => item.id === id));
     setOrderData({ ...orderData, id });
     setImgURL(`/photos/products/${id}.jpg`);
@@ -102,40 +99,51 @@ export default function Product() {
   return (
     <section className={styles.container}>
       <div className={styles.photos}>
-        <img className={styles.main_photo} src={imgURL} alt='' />
+        <img className={styles.main_photo} src={imgURL} alt="" />
       </div>
       <div className={styles.info}>
         <h2 className={styles.title}>{productData.name}</h2>
-        <p className={styles.price}>S/{productData.price}</p>
+        <p className={styles.price}>
+          S/
+          {productData.price}
+        </p>
         <p>{productData.description}</p>
         <p className={styles.subtitle}>Talla</p>
         <ul className={styles.sizes_list}>
-          {productData.stock.map((item, index) => (
-            <li
-              key={index}
-              className={styles.size}
-              style={styleSize(item.size)}
-              onClick={changeSize}
-            >
-              {item.size}
+          {productData.stock.map((item) => (
+            <li key={item.size}>
+              <button
+                type="button"
+                className={styles.size}
+                style={styleSize(item.size)}
+                onClick={changeSize}
+              >
+                {item.size}
+              </button>
             </li>
           ))}
         </ul>
         <p className={styles.subtitle}>Cantidad</p>
         {orderData.size ? (
-          <p className={styles.stock}>Stock: {stock} unidades</p>
+          <p className={styles.stock}>
+            Stock:
+            {stock}
+            {' '}
+            unidades
+          </p>
         ) : null}
         <div className={styles.quantity}>
-          <span onClick={() => addQuantity(-1)}>&lt;</span>
+          <button type="button" onClick={() => addQuantity(-1)}>&lt;</button>
           <input
-            type='text'
-            name='quantity'
+            type="text"
+            name="quantity"
             value={orderData.quantity}
             onChange={changeQuantity}
           />
-          <span onClick={() => addQuantity(1)}>&gt;</span>
+          <button type="button" onClick={() => addQuantity(1)}>&gt;</button>
         </div>
         <button
+          type="button"
           className={styles.add_cart_btn}
           onClick={addToCart}
           disabled={validationErrors.length}
@@ -143,8 +151,8 @@ export default function Product() {
           AGREGAR AL CARRITO
         </button>
         <ul>
-          {validationErrors.map((error, index) => (
-            <li key={index} className={styles.error}>
+          {validationErrors.map((error) => (
+            <li key={error} className={styles.error}>
               {error}
             </li>
           ))}

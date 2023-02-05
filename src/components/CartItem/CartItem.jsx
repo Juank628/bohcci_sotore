@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteCartItem } from '../../features/cart/cartSlice';
 import styles from './CartItem.module.scss';
@@ -12,8 +13,8 @@ export default function CartItem(props) {
   const product = list.find((item) => item.id === data.id);
 
   const deleteProduct = () => {
-    dispatch(deleteCartItem(data.id))
-  }
+    dispatch(deleteCartItem(data.id));
+  };
 
   return (
     <section className={styles.container}>
@@ -21,18 +22,35 @@ export default function CartItem(props) {
         <img
           className={styles.main_photo}
           src={`./photos/products/${data.id}.jpg`}
-          alt='product photo'
+          alt=""
         />
       </div>
       <div className={styles.info}>
-        <div onClick={deleteProduct} className={styles.close}>
-          <img src={closeIcon} alt='close' />
-        </div>
+        <button type="button" onClick={deleteProduct} className={styles.close}>
+          <img src={closeIcon} alt="close" />
+        </button>
         <p className={styles.title}>{product.name}</p>
-        <p className={styles.subtitle}>Talla: {data.size}</p>
-        <p className={styles.subtitle}>Cantidad: {data.quantity}</p>
-        <p className={styles.subtitle}>Subtotal: {product.price}</p>
+        <p className={styles.subtitle}>
+          Talla:
+          {data.size}
+        </p>
+        <p className={styles.subtitle}>
+          Cantidad:
+          {data.quantity}
+        </p>
+        <p className={styles.subtitle}>
+          Subtotal:
+          {product.price}
+        </p>
       </div>
     </section>
   );
 }
+
+CartItem.propTypes = {
+  data: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    size: PropTypes.string.isRequired,
+    quantity: PropTypes.number.isRequired,
+  }).isRequired,
+};
