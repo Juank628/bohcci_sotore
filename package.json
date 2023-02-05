@@ -7,10 +7,11 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "stylelint '**/*.{css,scss}' && eslint ."
+    "lint": "stylelint '**/*.{css,scss}' && eslint . --ext .jsx --fix"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.1",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
