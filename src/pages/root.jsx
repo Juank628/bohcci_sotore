@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
-import { setProducts } from '../features/products/productsSlice';
+import { setProducts } from '../redux/slices/productsSlice';
 import { apiURL } from '../utilities/parameters';
 import NavMenu from '../components/NavMenu/NavMenu';
 import Navbar from '../components/Navbar/Navbar';

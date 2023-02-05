@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteCartItem } from '../../features/cart/cartSlice';
+import { deleteCartItem } from '../../redux/slices/cartSlice';
 import styles from './CartItem.module.scss';
 import closeIcon from '../../assets/icons/close_icon.png';
 
