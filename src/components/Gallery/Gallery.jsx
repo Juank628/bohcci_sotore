@@ -42,7 +42,7 @@ export default function Gallery(props) {
 
 Gallery.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     family: PropTypes.string.isRequired,
   })).isRequired,
   section: PropTypes.string.isRequired,

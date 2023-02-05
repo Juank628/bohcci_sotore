@@ -49,7 +49,7 @@ export default function CartItem(props) {
 
 CartItem.propTypes = {
   data: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     size: PropTypes.string.isRequired,
     quantity: PropTypes.number.isRequired,
   }).isRequired,

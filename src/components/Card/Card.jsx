@@ -28,10 +28,8 @@ export default function Card(props) {
 
 Card.propTypes = {
   data: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
-    info: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
   }).isRequired,
 };
