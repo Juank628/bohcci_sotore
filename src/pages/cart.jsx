@@ -19,9 +19,6 @@ export default function Cart() {
     }
   });
 
-  const buy = () => {
-  };
-
   return (
     <section className={styles.container}>
       {cartItems.length > 0 ? (
@@ -35,9 +32,9 @@ export default function Cart() {
           <section className={styles.total_container} style={dinamicMargin}>
             <p className={styles.text}>Total</p>
             <p className={styles.price}>S/250.00</p>
-            <button type="button" className={styles.buy_button} onClick={buy}>
+            <a href="https://api.whatsapp.com/send?phone=956382973&text=%20test" target="_blank" rel="noreferrer" className={styles.buy_button}>
               Continuar compra
-            </button>
+            </a>
           </section>
         </>
       ) : (

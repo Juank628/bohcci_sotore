@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { apiURL } from '../../utilities/parameters';
 
 const initialState = {
   list: [],
@@ -8,7 +7,8 @@ const initialState = {
 export const readAllProducts = createAsyncThunk(
   'products/readAllProducts',
   async () => {
-    const res = await fetch(apiURL);
+    const { VITE_API_1_URL } = import.meta.env;
+    const res = await fetch(`${VITE_API_1_URL}/products`);
     const products = await res.json();
     return products;
   },
