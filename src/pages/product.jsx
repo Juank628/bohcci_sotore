@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { addCartItem } from '../redux/slices/cartSlice';
+import { readAllProducts } from '../redux/slices/productsSlice';
 import styles from './product.module.scss';
 
 export default function Product() {
@@ -81,12 +82,9 @@ export default function Product() {
     dispatch(addCartItem(orderData));
   };
 
-  useEffect(() => {
-    setProductData(list.find((item) => item.id === id));
-    setOrderData({ ...orderData, id });
-    setImgURL(`/photos/products/${id}.jpg`);
-    validate();
-  }, []);
+  const setInitialData = async () => {
+    
+  };
 
   useEffect(() => {
     updateStock();
@@ -96,21 +94,31 @@ export default function Product() {
     validate();
   }, [stock, orderData]);
 
+  useEffect(() => {
+    if (list.length === 0) {
+      dispatch(readAllProducts());
+    }
+    setProductData(list.find((item) => item.id === id));
+    setOrderData({ ...orderData, id });
+    setImgURL(`/photos/products/${id}.jpg`);
+    validate();
+  }, []);
+
   return (
     <section className={styles.container}>
       <div className={styles.photos}>
         <img className={styles.main_photo} src={imgURL} alt="" />
       </div>
       <div className={styles.info}>
-        <h2 className={styles.title}>{productData.name}</h2>
+        <h2 className={styles.title}>{productData?.name}</h2>
         <p className={styles.price}>
           S/
-          {productData.price}
+          {productData?.price}
         </p>
-        <p>{productData.description}</p>
+        <p>{productData?.description}</p>
         <p className={styles.subtitle}>Talla</p>
         <ul className={styles.sizes_list}>
-          {productData.stock.map((item) => (
+          {productData?.stock.map((item) => (
             <li key={item.size}>
               <button
                 type="button"
