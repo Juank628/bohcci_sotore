@@ -82,10 +82,6 @@ export default function Product() {
     dispatch(addCartItem(orderData));
   };
 
-  const setInitialData = async () => {
-    
-  };
-
   useEffect(() => {
     updateStock();
   }, [orderData.size]);
