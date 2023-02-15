@@ -14,6 +14,7 @@ export default function Product() {
   const [orderData, setOrderData] = useState({ quantity: 1, size: '' });
   const [stock, setStock] = useState(0);
   const [validationErrors, setValidationErrors] = useState([]);
+  const { VITE_PRODUCTS_BLOB_URL } = import.meta.env;
 
   const changeQuantity = (e) => {
     let newQuantity = 0;
@@ -96,7 +97,7 @@ export default function Product() {
     }
     setProductData(list.find((item) => item.id === id));
     setOrderData({ ...orderData, id });
-    setImgURL(`/photos/products/${id}.jpg`);
+    setImgURL(`${VITE_PRODUCTS_BLOB_URL}/${id}.jpg`);
     validate();
   }, []);
 
