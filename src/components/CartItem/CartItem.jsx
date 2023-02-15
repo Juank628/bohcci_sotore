@@ -9,6 +9,7 @@ export default function CartItem(props) {
   const dispatch = useDispatch();
   const { data } = props;
   const { list } = useSelector((store) => store.products);
+  const { VITE_PRODUCTS_BLOB_URL } = import.meta.env;
 
   const product = list.find((item) => item.id === data.id);
 
@@ -21,7 +22,7 @@ export default function CartItem(props) {
       <div className={styles.photos}>
         <img
           className={styles.main_photo}
-          src={`./photos/products/${data.id}.jpg`}
+          src={`${VITE_PRODUCTS_BLOB_URL}/${data.id}.jpg`}
           alt=""
         />
       </div>
