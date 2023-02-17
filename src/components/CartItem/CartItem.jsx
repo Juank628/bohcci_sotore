@@ -41,7 +41,7 @@ export default function CartItem(props) {
         </p>
         <p className={styles.subtitle}>
           Subtotal:
-          {product.price}
+          {product.price * data.quantity}
         </p>
       </div>
     </section>
