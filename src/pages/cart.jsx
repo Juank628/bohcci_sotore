@@ -9,6 +9,7 @@ export default function Cart() {
   const { cartItems } = useSelector((store) => store.cart);
   const { list } = useSelector((store) => store.products);
   const [whatsAppText, setWhatsAppText] = useState('');
+  const [totalPrice, setTotalPrice] = useState(0);
   const [dinamicMargin, setDinamicMargin] = useState({ marginTop: 0 });
 
   document.addEventListener('scroll', () => {
@@ -32,9 +33,20 @@ export default function Cart() {
     setWhatsAppText(text);
   };
 
+  const calculateTotalPrice = () => {
+    let total = 0;
+    let itemData = {};
+    cartItems.forEach((cartItem) => {
+      itemData = list.find((product) => product.id === cartItem.id);
+      total += itemData.price * cartItem.quantity;
+    });
+    setTotalPrice(total);
+  };
+
   useEffect(() => {
     buildWhatsAppText();
-  }, []);
+    calculateTotalPrice();
+  });
 
   return (
     <section className={styles.container}>
@@ -48,7 +60,10 @@ export default function Cart() {
 
           <section className={styles.total_container} style={dinamicMargin}>
             <p className={styles.text}>Total</p>
-            <p className={styles.price}>S/250.00</p>
+            <p className={styles.price}>
+              S/
+              {totalPrice}
+            </p>
             <a href={`https://api.whatsapp.com/send?phone=956382973&text=${whatsAppText}`} target="_blank" rel="noreferrer" className={styles.buy_button}>
               <span>Continuar compra</span>
               <img src={whatsappWhiteIcon} alt="whatsapp" className={styles.whatsAppIcon} />
