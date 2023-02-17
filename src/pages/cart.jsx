@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import styles from './cart.module.scss';
 import CartItem from '../components/CartItem/CartItem';
 import emptyCartIcon from '../assets/icons/empty_cart_icon.png';
+import whatsappWhiteIcon from '../assets/icons/whatsapp_white_icon.png';
 
 export default function Cart() {
   const { cartItems } = useSelector((store) => store.cart);
@@ -49,7 +50,8 @@ export default function Cart() {
             <p className={styles.text}>Total</p>
             <p className={styles.price}>S/250.00</p>
             <a href={`https://api.whatsapp.com/send?phone=956382973&text=${whatsAppText}`} target="_blank" rel="noreferrer" className={styles.buy_button}>
-              Continuar compra
+              <span>Continuar compra</span>
+              <img src={whatsappWhiteIcon} alt="whatsapp" className={styles.whatsAppIcon} />
             </a>
           </section>
         </>

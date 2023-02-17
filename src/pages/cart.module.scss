@@ -44,12 +44,21 @@
 }
 
 .buy_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
   width: 100%;
-  background-color: $color-primary;
+  background-color: $color-whatsApp;
+  font-size: 18px;
   color: $color-on-primary;
   border: 0;
   padding: 15px;
   margin-top: 30px;
+}
+
+.whatsAppIcon {
+  width: 30px;
 }
 
 .empty_cart_container {
