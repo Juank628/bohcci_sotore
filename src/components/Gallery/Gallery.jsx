@@ -26,10 +26,30 @@ export default function Gallery(props) {
         })}
       </div>
 
-      <h2 className={styles.familyTitle} id="section-2">- SALIDAS MAMÁ HIJA -</h2>
+      <h2 className={styles.familyTitle} id="section-2">- SALIDAS KIDS -</h2>
+      <div className={styles.familyContainer}>
+        {items.map((item) => {
+          if (item.family === 'salidas kids') {
+            return <Card key={item.id} data={item} />;
+          }
+          return null;
+        })}
+      </div>
+
+      <h2 className={styles.familyTitle} id="section-3">- SALIDAS MAMÁ HIJA -</h2>
       <div className={styles.familyContainer}>
         {items.map((item) => {
           if (item.family === 'salidas mama hija') {
+            return <Card key={item.id} data={item} />;
+          }
+          return null;
+        })}
+      </div>
+
+      <h2 className={styles.familyTitle} id="section-4">- PANTALONES -</h2>
+      <div className={styles.familyContainer}>
+        {items.map((item) => {
+          if (item.family === 'pantalones') {
             return <Card key={item.id} data={item} />;
           }
           return null;
