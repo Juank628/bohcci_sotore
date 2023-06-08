@@ -26,13 +26,13 @@ export default function NavMenu({ show, showMenuHandler, goTo }) {
               <Link to="/" onClick={() => goToSection('section-1')} className={styles.linkText}>SALIDAS ADULTO</Link>
             </li>
             <li className={styles.link}>
-              <Link to="/" onClick={() => goToSection('section-2')} className={styles.linkText}>SALIDAS MAMÁ HIJA</Link>
+              <Link to="/" onClick={() => goToSection('section-2')} className={styles.linkText}>SALIDAS KIDS</Link>
             </li>
             <li className={styles.link}>
-              <Link to="/" className={styles.linkText}>PANTALONES</Link>
+              <Link to="/" onClick={() => goToSection('section-3')} className={styles.linkText}>SALIDAS MAMÁ HIJA</Link>
             </li>
             <li className={styles.link}>
-              <Link to="/" className={styles.linkText}>BINCHAS</Link>
+              <Link to="/" onClick={() => goToSection('section-4')} className={styles.linkText}>PANTALONES</Link>
             </li>
             <li>
               <hr />

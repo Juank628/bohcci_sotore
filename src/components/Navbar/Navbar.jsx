@@ -52,9 +52,11 @@ export default function Navbar({ showMenuHandler, goTo }) {
           <ul className={styles.linksList}>
             <li><Link to="/" onClick={() => goToSection('section-1')}>Salidas adulto</Link></li>
             <li>|</li>
-            <li><Link to="/" onClick={() => goToSection('section-2')}>Salidas mamá hija</Link></li>
+            <li><Link to="/" onClick={() => goToSection('section-2')}>Salidas kids</Link></li>
             <li>|</li>
-            <li><Link to="/">Pantalones</Link></li>
+            <li><Link to="/" onClick={() => goToSection('section-3')}>Salidas mamá hija</Link></li>
+            <li>|</li>
+            <li><Link to="/" onClick={() => goToSection('section-4')}>Pantalones</Link></li>
           </ul>
         </nav>
         <Link to="/cart">
